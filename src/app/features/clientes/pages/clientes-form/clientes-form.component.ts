@@ -7,10 +7,9 @@ import { Cliente } from 'src/app/shared/cliente.model';
 @Component({
   selector: 'app-clientes-form',
   templateUrl: './clientes-form.component.html',
-  styleUrls: ['./clientes-form.component.css']
+  styleUrls: ['./clientes-form.component.css'],
 })
 export class ClientesFormComponent implements OnInit {
-
   form!: FormGroup;
   isEditMode = false;
   clienteIdParam!: number;
@@ -20,11 +19,10 @@ export class ClientesFormComponent implements OnInit {
     private fb: FormBuilder,
     private clienteService: ClienteService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
-
     this.form = this.fb.group({
       id: [null],
       nombre: ['', Validators.required],
@@ -35,10 +33,10 @@ export class ClientesFormComponent implements OnInit {
       telefono: ['', Validators.required],
       clienteId: ['', Validators.required],
       password: ['', Validators.required],
-      estado: [true]
+      estado: [true],
     });
 
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       if (params['id']) {
         this.isEditMode = true;
         this.clienteIdParam = +params['id'];
@@ -60,23 +58,18 @@ export class ClientesFormComponent implements OnInit {
       error: () => {
         window.alert('Error al cargar el cliente');
         this.loading = false;
-      }
+      },
     });
   }
 
   save(): void {
-
     if (this.form.invalid || this.loading) return;
-
     this.loading = true;
-
     const formValue = this.form.value;
-
     if (this.isEditMode) {
-
       const clienteEditado: Cliente = formValue;
-
-      this.clienteService.update(this.clienteIdParam, clienteEditado)
+      this.clienteService
+        .update(this.clienteIdParam, clienteEditado)
         .subscribe({
           next: () => {
             window.alert('Cliente actualizado correctamente');
@@ -86,25 +79,21 @@ export class ClientesFormComponent implements OnInit {
           error: () => {
             window.alert('No se pudo actualizar el cliente');
             this.loading = false;
-          }
-        });
-
-    } else {
-
-      const { id, ...clienteNuevo } = formValue;
-
-      this.clienteService.create(clienteNuevo)
-        .subscribe({
-          next: () => {
-            window.alert('Cliente creado correctamente');
-            this.loading = false;
-            this.router.navigate(['/clientes']);
           },
-          error: () => {
-            window.alert('No se pudo crear el cliente');
-            this.loading = false;
-          }
         });
+    } else {
+      const { id, ...clienteNuevo } = formValue;
+      this.clienteService.create(clienteNuevo).subscribe({
+        next: () => {
+          window.alert('Cliente creado correctamente');
+          this.loading = false;
+          this.router.navigate(['/clientes']);
+        },
+        error: () => {
+          window.alert('No se pudo crear el cliente');
+          this.loading = false;
+        },
+      });
     }
   }
 

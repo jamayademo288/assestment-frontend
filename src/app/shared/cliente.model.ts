@@ -7,6 +7,6 @@ export interface Cliente {
   direccion?: string;
   telefono?: string;
   clienteId: string;
-  password?: string;   // opcional en frontend
+  password?: string;
   estado: boolean;
 }

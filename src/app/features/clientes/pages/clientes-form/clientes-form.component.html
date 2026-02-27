@@ -6,7 +6,6 @@
 
   <form [formGroup]="form" (ngSubmit)="save()" class="form-grid">
 
-    <!-- Nombre -->
     <div class="form-group">
       <label>Nombre *</label>
       <input type="text" formControlName="nombre"
@@ -17,7 +16,6 @@
       </small>
     </div>
 
-    <!-- Edad -->
     <div class="form-group">
       <label>Edad *</label>
       <input type="number" formControlName="edad"
@@ -28,7 +26,6 @@
       </small>
     </div>
 
-    <!-- Identificación -->
     <div class="form-group">
       <label>N° de Identificación *</label>
       <input type="text" formControlName="identificacion"
@@ -39,7 +36,6 @@
       </small>
     </div>
 
-    <!-- Dirección -->
     <div class="form-group">
       <label>Dirección *</label>
       <input type="text" formControlName="direccion"
@@ -50,7 +46,6 @@
       </small>
     </div>
 
-    <!-- Teléfono -->
     <div class="form-group">
       <label>Teléfono *</label>
       <input type="text" formControlName="telefono"
@@ -61,7 +56,6 @@
       </small>
     </div>
 
-    <!-- Cliente ID -->
     <div class="form-group">
       <label>Usuario *</label>
       <input type="text" formControlName="clienteId"
@@ -72,7 +66,6 @@
       </small>
     </div>
 
-    <!-- Password -->
     <div class="form-group">
       <label>Contraseña *</label>
       <input type="password" formControlName="password"
@@ -83,7 +76,6 @@
       </small>
     </div>
 
-    <!-- Botones -->
     <div class="form-actions">
       <button type="submit" class="btn-save" [disabled]="form.invalid || loading">
 

@@ -16,7 +16,7 @@ export class ClientesListComponent implements OnInit {
   filteredClientes: Cliente[] = [];
   searchControl = new FormControl('');
 
-  loading = false;  // 🔥 NUEVO
+  loading = false;
 
   constructor(
     private clienteService: ClienteService,

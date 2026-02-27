@@ -29,13 +29,11 @@
 
   <div class="table-container">
 
-    <!-- Loading -->
     <div *ngIf="loading" class="loading-container">
       <div class="spinner"></div>
       <p>Cargando movimientos...</p>
     </div>
 
-    <!-- Tabla -->
     <table *ngIf="!loading && filteredMovimientos.length > 0">
       <thead>
         <tr>
@@ -58,7 +56,6 @@
       </tbody>
     </table>
 
-    <!-- Empty -->
     <div *ngIf="!loading && filteredMovimientos.length === 0"
          class="no-data">
       No hay datos disponibles

@@ -2,7 +2,6 @@
 
   <h2 class="title">Reporte de Movimientos</h2>
 
-  <!-- FILTRO -->
   <form [formGroup]="form" (ngSubmit)="generarReporte()" class="filter-section">
 
     <div class="form-group">
@@ -32,7 +31,6 @@
 
   </form>
 
-  <!-- RESULTADOS -->
   <div class="table-container">
 
     <div *ngIf="loading" class="loading-container">

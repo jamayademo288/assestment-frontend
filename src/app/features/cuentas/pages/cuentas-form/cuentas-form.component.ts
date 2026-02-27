@@ -35,9 +35,7 @@ export class CuentasFormComponent {
   }
 
  buscarCliente(id: string): void {
-
   const clienteId = Number(id);
-
   if (!clienteId || isNaN(clienteId)) {
     window.alert('Ingrese un ID válido');
     return;
@@ -45,7 +43,6 @@ export class CuentasFormComponent {
 
   this.buscandoCliente = true;
   this.clienteBuscado = null;
-
   this.clienteService.getById(clienteId).subscribe({
     next: (cliente) => {
       this.clienteBuscado = cliente;
@@ -59,17 +56,14 @@ export class CuentasFormComponent {
 }
 
   save(): void {
-
     if (this.form.invalid || this.loading || !this.clienteBuscado) {
       window.alert('Debe seleccionar un cliente válido');
       return;
     }
 
     this.loading = true;
-
     const formValue = this.form.value;
     const id = Number(this.clienteBuscado.id);
-
     const cuenta: Cuenta = {
       numeroCuenta: formValue.numeroCuenta,
       tipoCuenta: formValue.tipoCuenta,

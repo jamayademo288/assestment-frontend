@@ -1,7 +1,7 @@
 .form-wrapper {
   background: white;
   padding: 40px;
-  max-width: 1000px;   /* 🔥 requerido */
+  max-width: 1000px;
   margin: 0 auto;
   border-radius: 8px;
 }
@@ -12,14 +12,12 @@
   font-weight: 500;
 }
 
-/* GRID DESKTOP */
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px 30px;
 }
 
-/* Grupo input */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -46,13 +44,11 @@ input:focus {
   border-color: #f4c20d;
 }
 
-/* Checkbox */
 .checkbox-group {
   grid-column: span 2;
   margin-top: 10px;
 }
 
-/* Botones */
 .form-actions {
   grid-column: span 2;
   margin-top: 25px;
@@ -62,7 +58,7 @@ input:focus {
   background-color: #f4c20d;
   border: none;
   padding: 10px 25px;
-  border-radius: 25px;   /* 🔥 redondeado */
+  border-radius: 25px;
   cursor: pointer;
   font-weight: 500;
   margin-right: 10px;
@@ -86,11 +82,10 @@ input:focus {
   background-color: #d5d5d5;
 }
 
-/* 🔥 RESPONSIVE */
 @media (max-width: 880px) {
 
   .form-grid {
-    grid-template-columns: 1fr;  /* 🔥 todo en columna */
+    grid-template-columns: 1fr;
   }
 
   .checkbox-group,

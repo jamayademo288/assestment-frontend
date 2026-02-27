@@ -18,7 +18,7 @@ export class ClienteService {
       .pipe(
         catchError(error => {
           console.error('Error al obtener clientes', error);
-          return of([]); // fallback seguro
+          return of([]);
         })
       );
   }

@@ -22,7 +22,6 @@
       <p>Cargando clientes...</p>
     </div>
 
-    <!-- 🔥 TABLA -->
     <table *ngIf="!loading && filteredClientes.length > 0">
       <thead>
         <tr>
@@ -55,7 +54,6 @@
       </tbody>
     </table>
 
-    <!-- 🔥 EMPTY STATE -->
     <div *ngIf="!loading && filteredClientes.length === 0"
          class="no-data">
       No hay datos disponibles
