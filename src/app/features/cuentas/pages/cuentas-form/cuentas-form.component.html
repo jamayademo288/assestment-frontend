@@ -1,0 +1,74 @@
+<div class="form-wrapper">
+
+  <h2>Nueva Cuenta</h2>
+
+  <!-- 🔍 SECCIÓN BUSCAR CLIENTE -->
+<div class="cliente-search">
+
+  <h4>Buscar Cliente</h4>
+
+  <div class="search-row">
+    <input
+      type="number"
+      placeholder="Ingrese ID del cliente"
+      #clienteInput />
+
+    <button
+      type="button"
+      class="btn-search"
+      (click)="buscarCliente(clienteInput.value)">
+      Buscar
+    </button>
+  </div>
+
+  <div *ngIf="buscandoCliente">
+    Buscando cliente...
+  </div>
+
+  <div *ngIf="clienteBuscado" class="cliente-info">
+    <p><strong>Nombre:</strong> {{ clienteBuscado.nombre }}</p>
+    <p><strong>Identificación:</strong> {{ clienteBuscado.identificacion }}</p>
+    <p><strong>Estado:</strong> {{ clienteBuscado.estado ? 'Activo' : 'Inactivo' }}</p>
+  </div>
+
+</div>
+
+  <!-- FORMULARIO CUENTA -->
+  <form [formGroup]="form" (ngSubmit)="save()" class="form-grid">
+
+    <div class="form-group">
+      <label>Número Cuenta *</label>
+      <input formControlName="numeroCuenta">
+    </div>
+
+    <div class="form-group">
+      <label>Tipo Cuenta *</label>
+      <select formControlName="tipoCuenta">
+        <option value="">Seleccione</option>
+        <option value="AHORRO">Ahorro</option>
+        <option value="CORRIENTE">Corriente</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Saldo Inicial *</label>
+      <input type="number" formControlName="saldoInicial">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit"
+              class="btn-save"
+              [disabled]="form.invalid || loading">
+        {{ loading ? 'Guardando...' : 'Guardar' }}
+      </button>
+
+      <button type="button"
+              class="btn-cancel"
+              (click)="cancel()">
+        Cancelar
+      </button>
+    </div>
+
+  </form>
+
+</div>

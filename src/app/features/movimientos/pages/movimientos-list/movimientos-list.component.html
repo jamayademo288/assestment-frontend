@@ -1,0 +1,69 @@
+<div class="movimientos-container">
+
+  <h2 class="title">Movimientos</h2>
+
+  <div class="top-bar">
+
+    <div class="search-section">
+      <input
+        type="text"
+        placeholder="Buscar por Número de Cuenta"
+        [formControl]="searchControl"
+        class="search-input"
+      />
+
+      <button class="btn-search" (click)="buscar()">
+        Buscar
+      </button>
+
+      <button class="btn-clear" (click)="limpiar()">
+        Limpiar
+      </button>
+    </div>
+
+    <button class="btn-new" (click)="goToNew()">
+      Crear
+    </button>
+
+  </div>
+
+  <div class="table-container">
+
+    <!-- Loading -->
+    <div *ngIf="loading" class="loading-container">
+      <div class="spinner"></div>
+      <p>Cargando movimientos...</p>
+    </div>
+
+    <!-- Tabla -->
+    <table *ngIf="!loading && filteredMovimientos.length > 0">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Saldo</th>
+          <th>Número Cuenta</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let movimiento of filteredMovimientos">
+          <td>{{ movimiento.fecha | date:'short' }}</td>
+          <td>{{ movimiento.tipoMovimiento }}</td>
+          <td>{{ movimiento.valor }}</td>
+          <td>{{ movimiento.saldo }}</td>
+          <td>{{ movimiento.cuenta?.numeroCuenta }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Empty -->
+    <div *ngIf="!loading && filteredMovimientos.length === 0"
+         class="no-data">
+      No hay datos disponibles
+    </div>
+
+  </div>
+
+</div>

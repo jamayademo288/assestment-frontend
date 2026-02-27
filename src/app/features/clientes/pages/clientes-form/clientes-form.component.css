@@ -1,0 +1,117 @@
+.form-wrapper {
+  background: white;
+  padding: 40px;
+  max-width: 1000px;   /* 🔥 requerido */
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.form-title {
+  font-size: 26px;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+/* GRID DESKTOP */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 30px;
+}
+
+/* Grupo input */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #f4c20d;
+}
+
+/* Checkbox */
+.checkbox-group {
+  grid-column: span 2;
+  margin-top: 10px;
+}
+
+/* Botones */
+.form-actions {
+  grid-column: span 2;
+  margin-top: 25px;
+}
+
+.btn-save {
+  background-color: #f4c20d;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;   /* 🔥 redondeado */
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 10px;
+  transition: 0.2s ease;
+}
+
+.btn-save:hover {
+  opacity: 0.9;
+}
+
+.btn-cancel {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #d5d5d5;
+}
+
+/* 🔥 RESPONSIVE */
+@media (max-width: 880px) {
+
+  .form-grid {
+    grid-template-columns: 1fr;  /* 🔥 todo en columna */
+  }
+
+  .checkbox-group,
+  .form-actions {
+    grid-column: span 1;
+  }
+
+}
+
+.btn-save {
+  position: relative;
+  background-color: #f4c20d;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.2s ease;
+}
+
+.btn-save:disabled {
+  background-color: #e5e5e5;
+  cursor: not-allowed;
+}

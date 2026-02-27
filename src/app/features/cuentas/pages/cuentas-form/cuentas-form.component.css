@@ -1,0 +1,172 @@
+/* Contenedor principal */
+.form-wrapper {
+  background: white;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Título */
+h2 {
+  font-size: 26px;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+/* 🔍 Sección búsqueda cliente */
+.cliente-search {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+}
+
+.cliente-search h4 {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.search-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-row input {
+  flex: 1;
+}
+
+/* Información del cliente */
+.cliente-info {
+  margin-top: 15px;
+  padding: 15px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* GRID FORMULARIO */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 30px;
+}
+
+/* Grupo input */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs y Select */
+input,
+select {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+/* Focus */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #f4c20d;
+}
+
+/* 🔥 Estado inválido */
+input.invalid,
+select.invalid {
+  border-color: #dc2626;
+  background-color: #fff5f5;
+}
+
+/* 🔥 Mensaje error */
+.error {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Botones */
+.form-actions {
+  grid-column: span 2;
+  margin-top: 25px;
+}
+
+.btn-save {
+  background-color: #f4c20d;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.2s ease;
+}
+
+.btn-save:hover {
+  opacity: 0.9;
+}
+
+.btn-save:disabled {
+  background-color: #e5e5e5;
+  cursor: not-allowed;
+}
+
+.btn-cancel {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #d5d5d5;
+}
+
+/* Botón buscar */
+.btn-search {
+  background: #0ea5e9;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-search:hover {
+  opacity: 0.85;
+}
+
+/* 🔥 RESPONSIVE */
+@media (max-width: 768px) {
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    grid-column: span 1;
+  }
+
+  .search-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+}

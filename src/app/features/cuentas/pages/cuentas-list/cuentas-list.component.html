@@ -1,0 +1,69 @@
+<div class="cuentas-container">
+
+  <h2 class="title">Cuentas</h2>
+
+  <div class="top-bar">
+
+    <div class="search-section">
+      <input
+        type="text"
+        placeholder="Buscar por Cliente ID"
+        [formControl]="searchControl"
+        class="search-input"
+      />
+
+      <button class="btn-search" (click)="buscar()">
+        Buscar
+      </button>
+
+      <button class="btn-clear" (click)="limpiar()">
+        Limpiar
+      </button>
+    </div>
+
+    <button class="btn-new" (click)="goToNew()">
+      Crear
+    </button>
+
+  </div>
+
+  <div class="table-container">
+
+    <!-- Loading -->
+    <div *ngIf="loading" class="loading-container">
+      <div class="spinner"></div>
+      <p>Cargando cuentas...</p>
+    </div>
+
+    <!-- Tabla -->
+    <table *ngIf="!loading && filteredCuentas.length > 0">
+      <thead>
+        <tr>
+          <th>Número Cuenta</th>
+          <th>Tipo</th>
+          <th>Saldo Inicial</th>
+          <th>Estado</th>
+          <th>Cliente</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let cuenta of filteredCuentas">
+          <td>{{ cuenta.numeroCuenta }}</td>
+          <td>{{ cuenta.tipoCuenta }}</td>
+          <td>{{ cuenta.saldoInicial }}</td>
+          <td>{{ cuenta.estado ? 'Activa' : 'Inactiva' }}</td>
+          <td>{{ cuenta.cliente?.nombre }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Empty -->
+    <div *ngIf="!loading && filteredCuentas.length === 0"
+         class="no-data">
+      No hay datos disponibles
+    </div>
+
+  </div>
+
+</div>

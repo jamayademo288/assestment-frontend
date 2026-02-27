@@ -1,0 +1,74 @@
+<div class="reportes-container">
+
+  <h2 class="title">Reporte de Movimientos</h2>
+
+  <!-- FILTRO -->
+  <form [formGroup]="form" (ngSubmit)="generarReporte()" class="filter-section">
+
+    <div class="form-group">
+      <label>Desde *</label>
+      <input type="date" formControlName="desde">
+    </div>
+
+    <div class="form-group">
+      <label>Hasta *</label>
+      <input type="date" formControlName="hasta">
+    </div>
+
+    <div class="filter-actions">
+      <button type="submit"
+              class="btn-generate"
+              [disabled]="form.invalid || loading">
+        {{ loading ? 'Generando...' : 'Generar' }}
+      </button>
+
+      <button type="button"
+              class="btn-export"
+              (click)="exportar()"
+              [disabled]="movimientos.length === 0">
+        Exportar
+      </button>
+    </div>
+
+  </form>
+
+  <!-- RESULTADOS -->
+  <div class="table-container">
+
+    <div *ngIf="loading" class="loading-container">
+      <div class="spinner"></div>
+      <p>Generando reporte...</p>
+    </div>
+
+    <table *ngIf="!loading && movimientos.length > 0">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Cliente</th>
+          <th>Número Cuenta</th>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Saldo</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let mov of movimientos">
+          <td>{{ mov.fecha | date:'short' }}</td>
+          <td>{{ mov.cuenta?.cliente?.nombre }}</td>
+          <td>{{ mov.cuenta?.numeroCuenta }}</td>
+          <td>{{ mov.tipoMovimiento }}</td>
+          <td>{{ mov.valor }}</td>
+          <td>{{ mov.saldo }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!loading && movimientos.length === 0"
+         class="no-data">
+      No hay datos disponibles
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,46 @@
+<div class="layout-container">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      BANCO
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="body-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav>
+        <a routerLink="/clientes"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }">
+          Clientes
+        </a>
+
+        <a routerLink="/cuentas"
+           routerLinkActive="active">
+          Cuentas
+        </a>
+
+        <a routerLink="/movimientos"
+           routerLinkActive="active">
+          Movimientos
+        </a>
+
+        <a routerLink="/reportes"
+           routerLinkActive="active">
+          Reportes
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+
+</div>

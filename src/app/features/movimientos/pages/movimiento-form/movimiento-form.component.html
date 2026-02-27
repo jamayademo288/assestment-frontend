@@ -1,0 +1,75 @@
+<div class="form-wrapper">
+
+  <h2>Nuevo Movimiento</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()" class="form-grid">
+
+    <!-- ID Cuenta -->
+    <div class="form-group">
+      <label>ID Cuenta *</label>
+      <input
+        type="number"
+        formControlName="cuentaId"
+        [class.invalid]="form.get('cuentaId')?.invalid && form.get('cuentaId')?.touched"
+      />
+
+      <small class="error"
+        *ngIf="form.get('cuentaId')?.invalid && form.get('cuentaId')?.touched">
+        El ID de la cuenta es obligatorio
+      </small>
+    </div>
+
+    <!-- Tipo Movimiento -->
+    <div class="form-group">
+      <label>Tipo Movimiento *</label>
+      <select
+        formControlName="tipoMovimiento"
+        [class.invalid]="form.get('tipoMovimiento')?.invalid && form.get('tipoMovimiento')?.touched">
+
+        <option value="">Seleccione</option>
+        <option value="DEBITO">Débito</option>
+        <option value="CREDITO">Crédito</option>
+      </select>
+
+      <small class="error"
+        *ngIf="form.get('tipoMovimiento')?.invalid && form.get('tipoMovimiento')?.touched">
+        Debe seleccionar un tipo de movimiento
+      </small>
+    </div>
+
+    <!-- Monto -->
+    <div class="form-group">
+      <label>Monto *</label>
+      <input
+        type="number"
+        formControlName="valor"
+        [class.invalid]="form.get('valor')?.invalid && form.get('valor')?.touched"
+      />
+
+      <small class="error"
+        *ngIf="form.get('valor')?.invalid && form.get('valor')?.touched">
+        El monto debe ser mayor a 0
+      </small>
+    </div>
+
+    <!-- Botones -->
+    <div class="form-actions">
+      <button
+        type="submit"
+        class="btn-save"
+        [disabled]="form.invalid || loading">
+
+        {{ loading ? 'Procesando...' : 'Aplicar Movimiento' }}
+      </button>
+
+      <button
+        type="button"
+        class="btn-cancel"
+        (click)="cancel()">
+        Cancelar
+      </button>
+    </div>
+
+  </form>
+
+</div>
